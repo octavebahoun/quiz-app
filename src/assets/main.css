@@ -1,5 +1,100 @@
-/* Palette Dark Blue */
+@import "tailwindcss";
+
+/* Nouvelle palette de couleurs Lavande/Rose/Violet pour Quiz App */
 :root {
+  /* Mode Clair */
+  --bg-primary: #F8F3FF;
+  --bg-surface: #FEFBFF;
+  --bg-interactive: #F3E8FF;
+  
+  /* Header gradient */
+  --gradient-start: #FF6B9D;
+  --gradient-mid: #C94B9F;
+  --gradient-end: #8B5CF6;
+  
+  /* Accents */
+  --color-accent-primary: #FF6B9D;
+  --color-accent-secondary: #8B5CF6;
+  --color-accent-primary-hover: #FF4D85;
+  --color-accent-secondary-hover: #7C3AED;
+  
+  /* Text */
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  
+  /* Borders */
+  --border-color: #E9D5FF;
+  
+  /* Status */
+  --success: #10B981;
+  --error: #EF4444;
+  --shadow-color: rgba(139, 92, 246, 0.1);
+}
+
+/* Mode Sombre */
+:root.dark {
+  /* Fonds */
+  --bg-primary: #0F0A1F;
+  --bg-surface: #1A1330;
+  --bg-interactive: #251B3D;
+  
+  /* Header gradient */
+  --gradient-start: #FF6B9D;
+  --gradient-mid: #C94B9F;
+  --gradient-end: #7C3AED;
+  
+  /* Accents */
+  --color-accent-primary: #FF85B3;
+  --color-accent-secondary: #A78BFA;
+  --color-accent-primary-hover: #FFA3C7;
+  --color-accent-secondary-hover: #C4B5FD;
+  
+  /* Text */
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  
+  /* Borders */
+  --border-color: #4C1D95;
+  
+  /* Status */
+  --success: #34D399;
+  --error: #F87171;
+  --shadow-color: rgba(124, 58, 237, 0.2);
+}
+
+/* Ajout des couleurs au thème Tailwind v4 */
+@theme inline {
+  /* Backgrounds */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-interactive: var(--bg-interactive);
+  
+  /* Gradients */
+  --color-gradient-start: var(--gradient-start);
+  --color-gradient-mid: var(--gradient-mid);
+  --color-gradient-end: var(--gradient-end);
+  
+  /* Accents */
+  --color-accent-primary: var(--color-accent-primary);
+  --color-accent-secondary: var(--color-accent-secondary);
+  --color-accent-primary-hover: var(--color-accent-primary-hover);
+  --color-accent-secondary-hover: var(--color-accent-secondary-hover);
+  
+  /* Text */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  
+  /* Status */
+  --color-success: var(--success);
+  --color-error: var(--error);
+  
+  /* Borders */
+  --color-border: var(--border-color);
+  
+  /* Anciennes couleurs dark-blue pour compatibilité */
   --color-dark-blue-50: #b9dcff;
   --color-dark-blue-100: #acd7ff;
   --color-dark-blue-200: #64afff;
@@ -13,135 +108,60 @@
   --color-dark-blue-950: #000e66;
 }
 
-/* Classes utilitaires personnalisées */
-.bg-dark-blue-50 {
-  background-color: var(--color-dark-blue-50);
+/* Utilitaires personnalisés */
+@utility card-surface {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
 }
 
-.bg-dark-blue-100 {
-  background-color: var(--color-dark-blue-100);
+@utility btn-primary {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+  color: white;
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
 }
 
-.bg-dark-blue-200 {
-  background-color: var(--color-dark-blue-200);
+@utility btn-accent {
+  background-color: var(--color-accent-primary);
+  color: white;
+  &:hover {
+    background-color: var(--color-accent-primary-hover);
+  }
 }
 
-.bg-dark-blue-300 {
-  background-color: var(--color-dark-blue-300);
+@utility text-heading {
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
-.bg-dark-blue-400 {
-  background-color: var(--color-dark-blue-400);
+@utility text-body {
+  color: var(--text-primary);
 }
 
-.bg-dark-blue-500 {
-  background-color: var(--color-dark-blue-500);
+@utility text-muted {
+  color: var(--text-muted);
 }
 
-.bg-dark-blue-600 {
-  background-color: var(--color-dark-blue-600);
+@utility gradient-header {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
 }
 
-.bg-dark-blue-700 {
-  background-color: var(--color-dark-blue-700);
+/* Transitions globales */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, transform;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
 }
 
-.bg-dark-blue-800 {
-  background-color: var(--color-dark-blue-800);
+/* Mode clair par défaut */
+:root {
+  color-scheme: light;
 }
 
-.bg-dark-blue-900 {
-  background-color: var(--color-dark-blue-900);
-}
-
-.bg-dark-blue-950 {
-  background-color: var(--color-dark-blue-950);
-}
-
-.text-dark-blue-50 {
-  color: var(--color-dark-blue-50);
-}
-
-.text-dark-blue-100 {
-  color: var(--color-dark-blue-100);
-}
-
-.text-dark-blue-200 {
-  color: var(--color-dark-blue-200);
-}
-
-.text-dark-blue-300 {
-  color: var(--color-dark-blue-300);
-}
-
-.text-dark-blue-400 {
-  color: var(--color-dark-blue-400);
-}
-
-.text-dark-blue-500 {
-  color: var(--color-dark-blue-500);
-}
-
-.text-dark-blue-600 {
-  color: var(--color-dark-blue-600);
-}
-
-.text-dark-blue-700 {
-  color: var(--color-dark-blue-700);
-}
-
-.text-dark-blue-800 {
-  color: var(--color-dark-blue-800);
-}
-
-.text-dark-blue-900 {
-  color: var(--color-dark-blue-900);
-}
-
-.text-dark-blue-950 {
-  color: var(--color-dark-blue-950);
-}
-
-.border-dark-blue-50 {
-  border-color: var(--color-dark-blue-50);
-}
-
-.border-dark-blue-100 {
-  border-color: var(--color-dark-blue-100);
-}
-
-.border-dark-blue-200 {
-  border-color: var(--color-dark-blue-200);
-}
-
-.border-dark-blue-300 {
-  border-color: var(--color-dark-blue-300);
-}
-
-.border-dark-blue-400 {
-  border-color: var(--color-dark-blue-400);
-}
-
-.border-dark-blue-500 {
-  border-color: var(--color-dark-blue-500);
-}
-
-.border-dark-blue-600 {
-  border-color: var(--color-dark-blue-600);
-}
-
-.border-dark-blue-700 {
-  border-color: var(--color-dark-blue-700);
-}
-
-.border-dark-blue-800 {
-  border-color: var(--color-dark-blue-800);
-}
-
-.border-dark-blue-900 {
-  border-color: var(--color-dark-blue-900);
-}
-
-.border-dark-blue-950 {
-  border-color: var(--color-dark-blue-950);
+/* Mode sombre */
+:root.dark {
+  color-scheme: dark;
 }

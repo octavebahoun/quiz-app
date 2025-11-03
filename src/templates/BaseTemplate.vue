@@ -1,15 +1,18 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 box-border">
-    <!-- Animated Background -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+  <div class="min-h-screen bg-(--bg-primary) transition-colors duration-300">
+    <!-- Animated Background - Subtil avec les nouvelles couleurs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none opacity-20">
       <div
-        class="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob">
+        class="absolute top-0 -left-4 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl animate-blob"
+        style="background-color: var(--gradient-start);">
       </div>
       <div
-        class="absolute top-0 -right-4 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000">
+        class="absolute top-0 -right-4 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"
+        style="background-color: var(--gradient-mid);">
       </div>
       <div
-        class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000">
+        class="absolute -bottom-8 left-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"
+        style="background-color: var(--gradient-end);">
       </div>
     </div>
 
@@ -32,7 +35,6 @@
 </template>
 
 <script setup>
-// Base template for consistent styling across pages
 </script>
 
 <style scoped>
